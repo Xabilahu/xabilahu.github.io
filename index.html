@@ -15,24 +15,26 @@
     </head>
     <body onload="generateNavbarDivs();">
         <div id='topbar'>
-            <a href="#presentation" class="strong transition-fade non-underlined">Xabier Lahuerta</a>
-            <a href="#biography" class="transition-fade non-underlined">About Me</a>
-            <a href="#projects" class="transition-fade non-underlined">Projects</a>
-            <a href="#contact" class="transition-fade non-underlined">Contact</a>
+            <span class="strong transition-fade non-underlined" onclick="swapActiveCircle(1, true);">Xabier Lahuerta</span>
+            <span class="transition-fade non-underlined" onclick="swapActiveCircle(2, true);">About Me</span>
+            <span class="transition-fade non-underlined" onclick="swapActiveCircle(3, true);">Projects</span>
+            <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Contact</span>
         </div>
         <div id='main'>
-            <div id='presentation' class='section-1 vertical-flex'>
-                <div id='profile' class='vertical-flex'>
-                    <img id='avatar' src='res/xabier_lahuerta.jpeg' alt="Xabier Lahuerta Vázquez" width="270" height="270">
-                    <h2 class="title">Xabier Lahuerta Vázquez</h2>
-                    <h3 class="subtitle">Computer Science and Engineering Student</h3>
-                    <h3><a href="https://www.ehu.eus/en/en-home" target="_blank">University of the Basque Country</a></h3>
-                </div>
-                <div id='links'>
-                    <a href="mailto:xabier.lahuerta@gmail.com"><i class="fas fa-envelope expandable"></i></a>
-                    <a href="https://www.github.com/xabilahu" target="_blank"><i class="fab fa-github expandable"></i></a>
-                    <a href="https://www.hackerrank.com/xabilahu" target="_blank"><i class="fab fa-hackerrank expandable"></i></a>
-                    <a href="https://www.kaggle.com/xabierlahuertavzquez" target="_blank"><i class="fab fa-kaggle expandable"></i></a>
+            <div id="presentation" class="section-1">
+                <div id='presentation-chart' class='vertical-flex'>
+                    <div id='profile' class='vertical-flex'>
+                        <img id='avatar' src='res/xabier_lahuerta.jpeg' alt="Xabier Lahuerta Vázquez" width="270" height="270">
+                        <h2 class="title">Xabier Lahuerta Vázquez</h2>
+                        <h3 class="subtitle">Computer Science and Engineering Student</h3>
+                        <h3><a href="https://www.ehu.eus/en/en-home" target="_blank">University of the Basque Country</a></h3>
+                    </div>
+                    <div id='links'>
+                        <a href="mailto:xabier.lahuerta@gmail.com"><i class="fas fa-envelope expandable"></i></a>
+                        <a href="https://www.github.com/xabilahu" target="_blank"><i class="fab fa-github expandable"></i></a>
+                        <a href="https://www.hackerrank.com/xabilahu" target="_blank"><i class="fab fa-hackerrank expandable"></i></a>
+                        <a href="https://www.kaggle.com/xabierlahuertavzquez" target="_blank"><i class="fab fa-kaggle expandable"></i></a>
+                    </div>
                 </div>
             </div>
             <div id="biography" class="section-2">
