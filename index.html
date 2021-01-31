@@ -10,11 +10,13 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" type="text/css">
         <link rel="stylesheet" href="styles.css" type="text/css">
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤓</text></svg>">
+        <script src="logic.js"></script>
         <title>Xabier Lahuerta</title>
     </head>
-    <body>
+    <body onload="generateNavbarDivs();">
         <div id='topbar'>
             <a href="#presentation" class="strong transition-fade non-underlined">Xabier Lahuerta</a>
+            <a href="#biography" class="transition-fade non-underlined">About Me</a>
             <a href="#projects" class="transition-fade non-underlined">Projects</a>
             <a href="#contact" class="transition-fade non-underlined">Contact</a>
         </div>
@@ -39,6 +41,8 @@
             </div>
             <div id="contact" class="section-4">
             </div>
+        </div>
+        <div id="navbar" onmouseenter="hideActiveCircle();" onmouseleave="showActiveCircle();">
         </div>
     </body>
     <script> </script>
