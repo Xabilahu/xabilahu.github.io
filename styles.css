@@ -71,11 +71,12 @@ i {
     width: 100%;
     height: var(--topbar-height);
     padding: 2px;
+    background-color: var(--dark-bg);
     box-shadow: 0 0.125rem 0.25rem 0 rgb(255 255 255 / 11%);
     display: flex;
     align-items: center;
     justify-content: left;
-    z-index: 1000;
+    z-index: 2;
 }
 
 #topbar span:first-child {
@@ -197,5 +198,6 @@ i {
 div[class^="section-"] {
     height: calc(100vh - var(--topbar-height));
     width: 100vw;
-    transform: translateY(var(--slide-translation));
+    transform: translateY(var(--topbar-height));
+    z-index: 1;
 }
