@@ -59,6 +59,8 @@ function onPageLoad() {
         }, 300);
     });
 
+    document.querySelector("form").addEventListener("submit", sendContactForm);
+
     document.addEventListener("keydown", (event) => {
         switch (event.key) {
             case "Down":
@@ -81,4 +83,40 @@ function scrollDirection(isDownDirection) {
         swapActiveCircle(currentlyActiveCircle.previousElementSibling, false);
     }
     showActiveCircle();
+}
+
+function sendContactForm(evt) {
+    evt.preventDefault();
+
+    var data = {};
+    var form = document.querySelector("form");
+	for (var i = 0, ii = form.length; i < ii; ++i) {
+		var input = form[i];
+		if (input.name) {
+			data[input.name] = input.value;
+		}
+	}
+
+    if (window.XMLHttpRequest) xhr = new XMLHttpRequest();
+    else xhr = new ActiveXObject("Microsoft.XMLHTTP");
+
+    xhr.open("POST", "https://formspree.io/f/meqvoenn", true);
+    xhr.setRequestHeader('Accept', 'application/json; charset=utf-8');
+	xhr.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+    xhr.send(JSON.stringify(data));
+
+    xhr.onloadend = (response) => {
+        if (response.target.status == 200) {
+            document.getElementById("tick").classList.add('show');
+            for (var child of form.children[0].children) {
+                child.value = "";
+            }
+            setTimeout(() => {
+                document.getElementById("tick").classList.remove('show');
+            }, 2000)
+        } else {
+            console.log(response);
+            alert("failed!");
+        }
+    }
 }

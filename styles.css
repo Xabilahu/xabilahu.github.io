@@ -22,6 +22,9 @@
     --dark: #343a40;
     --dark-bg: #282a36;
     --hoverable: #bbdefb;
+    --code: #8be9fd;
+    --code-bg: #44475a;
+    --border-form: #ced4da;
     --topbar-height: 50px;
     --slide-translation: 100px;
     --breakpoint-xs: 0;
@@ -43,6 +46,12 @@ body {
     color: var(--white);
 }
 
+div[class^="section-"] {
+    height: calc(100vh - var(--topbar-height));
+    width: 100vw;
+    transform: translateY(var(--topbar-height));
+}
+
 span, a {
     color: inherit;
     text-decoration: none;
@@ -62,6 +71,35 @@ i {
     cursor: pointer;
     font-size: 42px;
     margin: 0 5px;
+}
+
+p {
+    white-space: pre-line;
+    word-wrap: break-word;
+    line-height: 1.75;
+    font-size: large;
+    text-align: justify;
+}
+
+code {
+    color: var(--code);
+    background-color: var(--code-bg);
+}
+
+code:hover {
+    cursor: pointer;
+}
+
+textarea {
+    resize: none;
+}
+
+form {
+    min-width: 60vw;
+}
+
+form div {
+    width: 100%;
 }
 
 #topbar {
@@ -93,20 +131,21 @@ i {
 }
 
 #presentation-chart {
-    align-items: center;
-    text-align: center;
     padding: 20px;
     border-radius: 8px;
     outline: none;
-    backdrop-filter: blur(23px);
+    /* backdrop-filter: blur(23px); */
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -45%);
+    transform: translate(-50%, -50%);
+}
+
+#profile {
+    font-family: "Montserrat";
 }
 
 #profile h2 {
-    font-family: "Montserrat";
     margin-top: 20px;
     margin-bottom: 10px;
     letter-spacing: .1rem;
@@ -117,17 +156,37 @@ i {
 }
 
 #profile h3:first-of-type {
-    font-family: "Montserrat";
     color: var(--secondary);
     margin-top: 0;
     margin-bottom: 10px;
 }
 
 #profile h3:last-of-type {
-    font-family: "Montserrat";
     color: var(--hoverable);
     margin-top: 0;
     margin-bottom: 10px;
+}
+
+#biography-chart {
+    max-width: 70vw;
+    min-width: 70vw;
+    font-size: large;
+}
+
+#resume {
+    color: var(--hoverable);
+}
+
+#contact {
+    min-width: 70vw;
+    margin: 0;
+}
+
+#download-icon {
+    color: var(--white);
+    font-size: large;
+    cursor: auto;
+    margin-right: 0.5rem;
 }
 
 #menu-icon {
@@ -136,7 +195,12 @@ i {
 }
 
 #links {
+    margin-top: 1rem;
     display: inline-flex;
+}
+
+#links a {
+    margin-left: 0.15rem;
 }
 
 #navbar {
@@ -144,6 +208,25 @@ i {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#tick {
+    cursor: auto;
+    opacity: 0;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+    -o-transition: opacity .25s ease;
+    -ms-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    -webkit-transition: opacity .25s ease;
+}
+
+#tick.show {
+    opacity: 1;
+    -o-transition: opacity .25s ease;
+    -ms-transition: opacity .25s ease;
+    -moz-transition: opacity .25s ease;
+    -webkit-transition: opacity .25s ease;
 }
 
 .transition-fade {
@@ -166,6 +249,11 @@ i {
 .horizontal-flex {
     display: flex;
     flex-direction: row;
+}
+
+.center-flex {
+    justify-content: center;
+    align-items: center;
 }
 
 .strong {
@@ -195,9 +283,51 @@ i {
     transform: scale(1.5);
 }
 
-div[class^="section-"] {
-    height: calc(100vh - var(--topbar-height));
-    width: 100vw;
-    transform: translateY(var(--topbar-height));
-    z-index: 1;
+.form-field {
+    font-family: "Roboto", sans-serif;
+    font-size: large;
+    padding: .375rem .75rem;
+    margin: .5rem 0;
+    line-height: 1.5;
+    color: var(--white);
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-form);
+    border-radius: .25rem;
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+}
+
+.form-field:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 5px var(--primary);
+}
+
+.btn {
+    font-family: "Roboto", sans-serif;
+    font-size: medium;
+    cursor: pointer;
+    color: var(--primary);
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    border-radius: .25rem;
+    outline: none;
+    padding: .5rem 1rem;
+    margin: .5rem 0;
+    width: fit-content;
+    -o-transition: background-color .15s ease-in-out;
+    -ms-transition: background-color .15s ease-in-out;
+    -moz-transition: background-color .15s ease-in-out;
+    -webkit-transition: background-color .15s ease-in-out;
+}
+
+.btn:hover, .btn:focus {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+.inline-container {
+    align-items: center;
 }
