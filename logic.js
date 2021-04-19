@@ -46,33 +46,38 @@ function generateNavbarDivs() {
 }
 
 function onPageLoad() {
-    generateNavbarDivs();
-    document.addEventListener("wheel", (event) => {
-        if (currentlyActiveCircle == undefined || waitForWheel) return;
-        waitForWheel = true;
+    var host = "xabierlahuerta.eus"
+    if (window.location.host == host && window.location.protocol != "https:") {
+        window.location.protocol = "https:"
+    } else {
+        generateNavbarDivs();
+        document.addEventListener("wheel", (event) => {
+            if (currentlyActiveCircle == undefined || waitForWheel) return;
+            waitForWheel = true;
 
-        var isDownDirection = event.deltaY > 0;
-        scrollDirection(isDownDirection);
+            var isDownDirection = event.deltaY > 0;
+            scrollDirection(isDownDirection);
 
-        setTimeout(() => {
-            waitForWheel = false;
-        }, 300);
-    });
+            setTimeout(() => {
+                waitForWheel = false;
+            }, 300);
+        });
 
-    document.querySelector("form").addEventListener("submit", sendContactForm);
+        document.querySelector("form").addEventListener("submit", sendContactForm);
 
-    document.addEventListener("keydown", (event) => {
-        switch (event.key) {
-            case "Down":
-            case "ArrowDown":
-                scrollDirection(true);
-                break;
-            case "Up":
-            case "ArrowUp":
-                scrollDirection(false);
-                break;
-        }
-    });
+        document.addEventListener("keydown", (event) => {
+            switch (event.key) {
+                case "Down":
+                case "ArrowDown":
+                    scrollDirection(true);
+                    break;
+                case "Up":
+                case "ArrowUp":
+                    scrollDirection(false);
+                    break;
+            }
+        });
+    }
 }
 
 function scrollDirection(isDownDirection) {
