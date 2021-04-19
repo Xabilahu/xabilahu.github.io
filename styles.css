@@ -114,7 +114,7 @@ form div {
     display: flex;
     align-items: center;
     justify-content: left;
-    z-index: 2;
+    z-index: 3;
 }
 
 #topbar span:first-child {
@@ -436,6 +436,7 @@ form div {
     padding: .5rem 1rem;
     margin: .5rem 0;
     width: fit-content;
+    z-index: 2;
     -o-transition: background-color .15s ease-in-out;
     -ms-transition: background-color .15s ease-in-out;
     -moz-transition: background-color .15s ease-in-out;
