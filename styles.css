@@ -118,7 +118,8 @@ form div {
 }
 
 #topbar span:first-child {
-    margin-left: 25%;
+    margin-left: 15vw;
+    margin-right: 2rem;
 }
 
 #topbar span {
@@ -229,6 +230,26 @@ form div {
     -webkit-transition: opacity .25s ease;
 }
 
+#footer {
+    position: absolute;
+    width: 100%;
+    bottom: 5%;
+}
+
+#footer a {
+    color: var(--hoverable);
+}
+
+#footer p {
+    font-size: 1rem;
+}
+
+#experience {
+    min-width: 70vw;
+    max-width: 70vw;
+    margin: auto;
+}
+
 .transition-fade {
     color: var(--white);
     -o-transition: color .6s ease;
@@ -281,6 +302,104 @@ form div {
 .circle:hover, #navbar .active {
     background-color: var(--hoverable);
     transform: scale(1.5);
+}
+
+.work-chart-container {
+    width: 80%
+}
+
+.work-chart {
+    background-color: var(--dark);
+    border-radius: 0.45rem;
+    border: 1px solid rgba(0,0,0,.125);
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    padding: 1rem;
+    transition: all .2s ease-out;
+    text-overflow: ellipsis;
+    width: 100%;
+}
+
+.work-chart:hover {
+    box-shadow: 0 8px 16px rgb(0 0 0 / 20%);
+}
+
+.work-chart img {
+    width: 5rem;
+    height: 5rem;
+    background-color: var(--white);
+    border-radius: 0.35rem;
+    margin-right: 1rem;
+}
+
+.work-chart h4 {
+    color: var(--hoverable);
+}
+
+.spacer {
+    height: 2.5rem;
+}
+
+.timeline {
+    width: 20%;
+    align-self: stretch;
+}
+
+.timeline>div {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    flex: 1;
+}
+
+.timeline>div>div {
+    width: 50%;
+}
+
+.timeline span {
+    width: 1.15rem !important;
+    height: 1.15rem !important;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    margin: 0.5rem 0 !important;
+}
+
+.filled-circle {
+    background-color: var(--primary);
+}
+
+.line div:last-child {
+    border-left: 1px solid var(--primary);
+}
+
+.work-description *:not(img) {
+    margin: .5rem 0;
+}
+
+.work-description {
+    align-items: center;
+}
+
+.responsibilities p {
+    margin-top: .25rem;
+    margin-bottom: .5rem;
+    line-height: 1.4;
+}
+
+.responsibilities ul {
+    margin: 0;
+    font-size: large;
+    line-height: 1.5;
+}
+
+.responsibilities span {
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.middle-dot::after {
+    content: '\00B7';
+    box-sizing: border-box;
+    padding: 0 0.5rem;
 }
 
 .form-field {

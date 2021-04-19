@@ -6,10 +6,10 @@
         <meta name="author" content="Xabier Lahuerta Vázquez">
         <meta name="description" content="Computer Science Student at University of the Basque Country">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.0/css/all.css" type="text/css">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto" type="text/css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" type="text/css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" type="text/css">
         <link rel="stylesheet" href="styles.css" type="text/css">
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤓</text></svg>">
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22https://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤓</text></svg>">
         <script src="logic.js"></script>
         <title>Xabier Lahuerta</title>
     </head>
@@ -18,8 +18,8 @@
             <span class="strong transition-fade non-underlined" onclick="swapActiveCircle(1, true);">Xabier Lahuerta</span>
             <span class="transition-fade non-underlined" onclick="swapActiveCircle(2, true);">About Me</span>
             <span class="transition-fade non-underlined" onclick="swapActiveCircle(3, true);">Experience</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Software</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(5, true);">Contact</span>
+            <!-- <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Software</span> -->
+            <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Contact</span>
         </div>
         <div id='main'>
             <div id="presentation" class="section-1">
@@ -51,10 +51,78 @@
                 </div>
             </div>
             <div id="experience" class="section-3 vertical-flex center-flex">
+                <div class="horizontal-flex">
+                    <h1>Experience</h1>
+                    <div id="work-container">
+                        <div class="work-card horizontal-flex center-flex">
+                            <div class="timeline vertical-flex center-flex">
+                                <div class="horizontal-flex">
+                                    <div>&nbsp;</div>
+                                    <div>&nbsp;</div>
+                                </div>
+                                <span class="filled-circle"></span>
+                                <div class="line horizontal-flex">
+                                    <div>&nbsp;</div>
+                                    <div>&nbsp;</div>
+                                </div>
+                            </div>
+                            <div class="work-chart-container">
+                                <div class="work-chart">
+                                    <div class="work-description horizontal-flex">
+                                        <img src="res/upwork.png" alt="Upwork">
+                                        <div>
+                                            <h3>Occasional Freelancer</h3>
+                                            <h4><a href="https://www.upwork.com/o/profiles/users/~015a6c1dc1264ab7d7/" target="_blank">Upwork</a></h4>
+                                            <span>March 2021 - Present <span class="middle-dot"></span> Remote</span>
+                                        </div>
+                                    </div>
+                                    <div class="responsibilities">
+                                    </div>
+                                </div>
+                                <div class="spacer">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="work-card horizontal-flex center-flex">
+                            <div class="timeline vertical-flex center-flex">
+                                <div class="line horizontal-flex">
+                                    <div>&nbsp;</div>
+                                    <div>&nbsp;</div>
+                                </div>
+                                <span></span>
+                                <div class="horizontal-flex">
+                                    <div>&nbsp;</div>
+                                    <div>&nbsp;</div>
+                                </div>
+                            </div>
+                            <div class="work-chart-container">
+                                <div class="spacer">&nbsp;</div>
+                                <div class="work-chart">
+                                    <div class="work-description horizontal-flex">
+                                        <img src="res/satlantis.png" alt="Satlantis">
+                                        <div>
+                                            <h3>Software Engineer Intern</h3>
+                                            <h4><a href="https://satlantis.com/" target="_blank">Satlantis LLC</a></h4>
+                                            <span>May 2020 - August 2020 <span class="middle-dot"></span> Leioa, Bilbao</span>
+                                        </div>
+                                    </div>
+                                    <div class="responsibilities">
+                                        <p> Satlantis is a space company that provides optical payloads for Earth Observation small satellites.
+                                            <span>Responsibilities include</span> :
+                                            <ul>
+                                                <li>Develop ground operations software for <code><a href="https://satlantis.com/isim-170/" class="non-underlined" target="_blank">iSIM-170</a></code>.</li>
+                                                <li>Develop some minor modules of the flight software.</li>
+                                            </ul>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div id="software" class="section-4 vertical-flex center-flex">
-            </div>
-            <div id="contact" class="section-5 vertical-flex center-flex">
+            <!-- <div id="software" class="section-4 vertical-flex center-flex">
+            </div> -->
+            <div id="contact" class="section-4 vertical-flex center-flex">
                 <h1>Contact</h1>
                 <form class="vertical-flex">
                     <div class="vertical-flex">
@@ -64,6 +132,12 @@
                     </div>
                     <div class="horizontal-flex inline-container"><button class="btn" type="submit">Send</button><i id="tick" class="fas fa-check"></i></div>
                 </form>
+                <div id="footer" class="vertical-flex center-flex">
+                    <p>
+                        Website fully built with vanilla HTML, CSS and Javascript. Code available <a href="https://github.com/Xabilahu/personal-website">here</a>.
+                        Site hosted on <a href="https://pages.github.com/" target="_blank">Github Pages</a>. Website design inspired by <a href="https://themes.gohugo.io//theme/academic/" target="_blank">Hugo Academic</a> theme.
+                    </p>
+                </div>
             </div>
         </div>
         <div id="navbar" onmouseenter="hideActiveCircle();" onmouseleave="showActiveCircle();">
