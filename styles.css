@@ -26,7 +26,7 @@
     --code-bg: #44475a;
     --border-form: #ced4da;
     --topbar-height: 50px;
-    --slide-translation: 100px;
+    --toggle-height: 1.25rem;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -50,6 +50,10 @@ div[class^="section-"] {
     height: calc(100vh - var(--topbar-height));
     width: 100vw;
     transform: translateY(var(--topbar-height));
+}
+
+div[class^="section-"] h1:first-child {
+    margin-top: 0;
 }
 
 span, a {
@@ -113,18 +117,100 @@ form div {
     box-shadow: 0 0.125rem 0.25rem 0 rgb(255 255 255 / 11%);
     display: flex;
     align-items: center;
-    justify-content: left;
+    justify-content: space-between;
     z-index: 3;
 }
 
 #topbar span:first-child {
-    margin-left: 15vw;
+    margin-left: 10vw;
     margin-right: 2rem;
 }
 
-#topbar span {
-    margin-right: 15px;
+#toggle-container {
     cursor: pointer;
+    margin-right: 10vw;
+}
+
+#toggle-holder {
+    position: relative;
+    height: 1rem;
+    width: 2rem;
+    border-radius: 1rem;
+    background-color: var(--border-form);
+    -o-transition: background-color .15s ease-out;
+    -ms-transition: backgorund-color .15s ease-out;
+    -moz-transition: background-color .15s ease-out;
+    -webkit-transition: background-color .15s ease-out;
+}
+
+#toggle {
+    position: absolute;
+    top: -10%;
+    width: var(--toggle-height);
+    height: var(--toggle-height);
+    border-radius: 50%;
+    box-shadow: 0 8px 20px 0 rgba(0, 0, 0, 0.25);
+    background-color: var(--gray);
+}
+
+@keyframes toggleOn {
+    0% {
+        left: -5%;
+        background-color: var(--gray);
+    }
+
+    100% {
+        left: 50%;
+        background-color: var(--hoverable);
+    }
+}
+
+@keyframes toggleOff {
+    0% {
+        left: 50%;
+        background-color: var(--hoverable);
+    }
+
+    100% {
+        left: -5%;
+        background-color: var(--gray);
+    }
+}
+
+#toggle.on {
+    left: -5%;
+    animation-name: toggleOn;
+    animation-duration: 0.15s;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+#toggle.off {
+    left: 50%;
+    animation-name: toggleOff;
+    animation-duration: 0.15s;
+    animation-iteration-count:1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+#toggle-holder .off {
+    background-color: var(--hoverable);
+}
+
+#topbar span {
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+#canvas {
+    position: fixed;
+    top: var(--topbar-height);
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - var(--topbar-height));
+    z-index: -1;
 }
 
 #avatar {
@@ -132,10 +218,7 @@ form div {
 }
 
 #presentation-chart {
-    padding: 20px;
-    border-radius: 8px;
     outline: none;
-    /* backdrop-filter: blur(23px); */
     position: fixed;
     top: 50%;
     left: 50%;
@@ -206,9 +289,18 @@ form div {
 
 #navbar {
     position: fixed;
-    right: 20px;
+    right: 1%;
     top: 50%;
     transform: translateY(-50%);
+    padding: 1rem;
+}
+
+#navbar .circle:last-child {
+    margin: 0;
+}
+
+#animToggle {
+    font-size: 1.5rem;
 }
 
 #tick {
@@ -233,7 +325,7 @@ form div {
 #footer {
     position: absolute;
     width: 100%;
-    bottom: 5%;
+    bottom: 1.5%;
 }
 
 #footer a {
@@ -241,13 +333,24 @@ form div {
 }
 
 #footer p {
-    font-size: 1rem;
+    font-size: 0.75rem;
+    line-height: 1.25;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
 }
 
 #experience {
     min-width: 70vw;
     max-width: 70vw;
     margin: auto;
+}
+
+.backdrop {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    background-color: rgba(0,0,0,.35);
+    padding: 2rem;
+    border-radius: 1rem;
 }
 
 .transition-fade {
@@ -316,7 +419,6 @@ form div {
     padding: 1rem;
     transition: all .2s ease-out;
     text-overflow: ellipsis;
-    width: 100%;
 }
 
 .work-chart:hover {

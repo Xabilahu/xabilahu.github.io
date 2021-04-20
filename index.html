@@ -10,20 +10,27 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat" type="text/css">
         <link rel="stylesheet" href="styles.css" type="text/css">
         <link rel="icon" href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/271/nerd-face_1f913.png">
-        <script src="logic.js"></script>
+        <script src="js/logic.js"></script>
         <title>Xabier Lahuerta</title>
     </head>
     <body onload="onPageLoad();">
+        <canvas id="canvas"></canvas>
         <div id='topbar'>
-            <span class="strong transition-fade non-underlined" onclick="swapActiveCircle(1, true);">Xabier Lahuerta</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(2, true);">About Me</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(3, true);">Experience</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Software</span>
-            <span class="transition-fade non-underlined" onclick="swapActiveCircle(5, true);">Contact</span>
+            <div>
+                <span class="strong transition-fade non-underlined" onclick="swapActiveCircle(1, true);">Xabier Lahuerta</span>
+                <span class="transition-fade non-underlined" onclick="swapActiveCircle(2, true);">About Me</span>
+                <span class="transition-fade non-underlined" onclick="swapActiveCircle(3, true);">Experience</span>
+                <span class="transition-fade non-underlined" onclick="swapActiveCircle(4, true);">Contact</span>
+            </div>
+            <div id="toggle-container">
+                <div id="toggle-holder" onclick="toggleCanvasAnimation();">
+                    <div id="toggle" class="on">&nbsp;</div>
+                </div>
+            </div>
         </div>
         <div id='main'>
             <div id="presentation" class="section-1">
-                <div id='presentation-chart' class='vertical-flex center-flex'>
+                <div id='presentation-chart' class='vertical-flex center-flex backdrop'>
                     <div id='profile' class='vertical-flex center-flex'>
                         <img id='avatar' src='res/xabier_lahuerta.jpeg' alt="Xabier Lahuerta Vázquez" width="270" height="270">
                         <h2 class="title">Xabier Lahuerta Vázquez</h2>
@@ -40,18 +47,18 @@
                 </div>
             </div>
             <div id="biography" class="section-2 vertical-flex center-flex">
-                <div id="biography-chart">
+                <div id="biography-chart" class="backdrop">
                     <h1>Biography</h1>
                     <p>
                         I'm <strong>Xabier Lahuerta Vázquez</strong>, currently I'm on my last year of <strong>BSc in Computer Science</strong> at <strong>University of the Basque Country</strong>, Donostia, Spain. I'm 22 years old, and I want to get some expertise with <strong>Machine Learning</strong> and <strong>Deep Learning</strong>.                        Currently, as a student, I am part of <a class="non-underlined" href="http://ixa.si.ehu.es/" target="_blank"><code>IXA</code></a>, which is a research group working on the <strong>Natural Language Processing</strong> at University of the Basque Country.
                     
                         Due to my passion for technology, I enjoy contributing to open-source projects, and writing code for my own entertainment. I also enjoy playing a number of sports, including cycling and soccer, as well as playing videogames in my freetime (which is less than I would like 🙃). One of my favorite activities to enjoy on the weekends is hanging out with my family and friends.
                     </p>
-                    <span><i id='download-icon' class="fas fa-download"></i>Download my <a id="resume" class="non-underlined" href="https://drive.google.com/uc?export=download&id=1_EvmhcPBmLihqZ3R23M4B5LtYtLkCQJz" download>resumé</a>.</span>
+                    <span><i id='download-icon' class="fas fa-download"></i>Download my <a id="resume" class="non-underlined" href="https://drive.google.com/uc?export=download&id=1_EvmhcPBmLihqZ3R23M4B5LtYtLkCQJz" download>resume</a>.</span>
                 </div>
             </div>
             <div id="experience" class="section-3 vertical-flex center-flex">
-                <div class="horizontal-flex">
+                <div class="horizontal-flex backdrop">
                     <h1>Experience</h1>
                     <div id="work-container">
                         <div class="work-card horizontal-flex center-flex">
@@ -120,28 +127,27 @@
                     </div>
                 </div>
             </div>
-            <div id="software" class="section-4 vertical-flex center-flex">
-            </div>
-            <div id="contact" class="section-5 vertical-flex center-flex">
-                <h1>Contact</h1>
-                <form class="vertical-flex">
-                    <div class="vertical-flex">
-                        <input class="form-field" type="text" name="name" placeholder="Name" required>
-                        <input class="form-field" type="email" name="_replyto" placeholder="Email" required>
-                        <textarea class="form-field" name="message" placeholder="Message" rows="5" required></textarea>
-                    </div>
-                    <div class="horizontal-flex inline-container"><button class="btn" type="submit">Send</button><i id="tick" class="fas fa-check"></i></div>
-                </form>
+            <div id="contact" class="section-4 vertical-flex center-flex">
+                <div class="backdrop">
+                    <h1>Contact</h1>
+                    <form class="vertical-flex">
+                        <div class="vertical-flex">
+                            <input class="form-field" type="text" name="name" placeholder="Name" required>
+                            <input class="form-field" type="email" name="_replyto" placeholder="Email" required>
+                            <textarea class="form-field" name="message" placeholder="Message" rows="5" required></textarea>
+                        </div>
+                        <div class="horizontal-flex inline-container"><button class="btn" type="submit">Send</button><i id="tick" class="fas fa-check"></i></div>
+                    </form>
+                </div>
                 <div id="footer" class="vertical-flex center-flex">
-                    <p>
-                        Website fully built with vanilla HTML, CSS and Javascript. Code available <a href="https://github.com/Xabilahu/personal-website">here</a>.
+                    <p class="backdrop">Website fully built with vanilla HTML, CSS and Javascript. Code available <a href="https://github.com/Xabilahu/personal-website">here</a>.
                         Site hosted on <a href="https://pages.github.com/" target="_blank">Github Pages</a>. Website design inspired by <a href="https://themes.gohugo.io//theme/academic/" target="_blank">Hugo Academic</a> theme.
                     </p>
                 </div>
             </div>
         </div>
-        <div id="navbar" onmouseenter="hideActiveCircle();" onmouseleave="showActiveCircle();">
+        <div id="navbar" class="backdrop" onmouseenter="hideActiveCircle();" onmouseleave="showActiveCircle();">
         </div>
     </body>
-    <script> </script>
+    <script src="js/particles.js"></script>
 </html>
