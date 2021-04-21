@@ -108,7 +108,6 @@ function toggleCanvasAnimation(force=false) {
                 toggle.classList.remove('off');
                 toggle.classList.add('on');
             } 
-            canvas.style.display = "block";
             last = Date.now();
             animationID = window.requestAnimationFrame(drawParticles);
         } else {
@@ -120,7 +119,6 @@ function toggleCanvasAnimation(force=false) {
                 toggle.classList.remove('on');
                 toggle.classList.add('off');
             }
-            canvas.style.display = "none";
         }
     }
 }
