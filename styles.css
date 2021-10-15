@@ -257,10 +257,6 @@ form div {
     font-size: large;
 }
 
-#resume {
-    color: var(--hoverable);
-}
-
 #contact {
     min-width: 70vw;
     margin: 0;
@@ -343,6 +339,10 @@ form div {
     min-width: 70vw;
     max-width: 70vw;
     margin: auto;
+}
+
+.plain-link {
+    color: var(--hoverable);
 }
 
 .backdrop {
