@@ -45,8 +45,15 @@ function generateNavbarDivs() {
     }
 }
 
+function autoScaleForMobile() {
+    var siteWidth = 1280;
+    var scale = screen.width /siteWidth;
+
+    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+}
+
 function onPageLoad() {
-    var host = "xabierlahuerta.eus"
+    var host = "xabilahu.github.io"
     if (window.location.host == host && window.location.protocol != "https:") {
         window.location.protocol = "https:"
     } else {
@@ -77,6 +84,7 @@ function onPageLoad() {
                     break;
             }
         });
+        autoScaleForMobile();
     }
 }
 
