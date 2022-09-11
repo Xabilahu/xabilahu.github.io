@@ -27,11 +27,8 @@
     --border-form: #ced4da;
     --topbar-height: 50px;
     --toggle-height: 1.25rem;
-    --breakpoint-xs: 0;
-    --breakpoint-sm: 576px;
-    --breakpoint-md: 768px;
-    --breakpoint-lg: 992px;
-    --breakpoint-xl: 1200px;
+    --breakpoint-height: 850px;
+    --breakpoint-width: 1200px;
 }
 
 html {
@@ -226,7 +223,7 @@ form div {
 }
 
 #profile {
-    font-family: "Montserrat";
+    font-family: "Montserrat", sans-serif;
 }
 
 #profile h2 {
@@ -408,7 +405,7 @@ form div {
 }
 
 .work-chart-container {
-    width: 80%
+    margin-left: 25px;
 }
 
 .work-chart {
@@ -419,6 +416,7 @@ form div {
     padding: 1rem;
     transition: all .2s ease-out;
     text-overflow: ellipsis;
+    min-width: 400px;
 }
 
 .work-chart:hover {

@@ -82,13 +82,13 @@ function swapActiveCircle(element, searchCircle) {
     if (searchCircle == true) {
         hideActiveCircle();
         currentlyActiveCircle = document.querySelector("#navbar").children[element - 1];
-        id = document.getElementsByClassName("section-" + element)[0].id;
+        id = document.getElementsByClassName(`section-${element}`)[0].id;
         showActiveCircle();
     } else {
         currentlyActiveCircle = element;
         id = element.getAttribute("target-section");
     }
-    document.querySelector("#" + id).scrollIntoView({behavior: "smooth", block: "end"});
+    document.querySelector(`#${id}`).scrollIntoView({behavior: "smooth", block: "end"});
 }
 
 function hideActiveCircle(preventSearch = false) {
@@ -125,7 +125,7 @@ function autoScaleForMobile() {
     var siteWidth = 1280;
     var scale = screen.width /siteWidth;
 
-    document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+    document.querySelector('meta[name="viewport"]').setAttribute('content', `width=${siteWidth}, initial-scale=${scale}`);
 }
 
 function onPageLoad() {
